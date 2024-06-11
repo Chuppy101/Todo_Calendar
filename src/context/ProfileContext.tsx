@@ -5,20 +5,24 @@ interface ProfileContextProps {
 	profiles: string[]
 	switchProfile: (profileName: string) => void
 	addProfile: (profileName: string) => void
+	editProfile: (oldProfileName: string, newProfileName: string) => void
+	deleteProfile: (profileName: string) => void
 }
 
 const ProfileContext = createContext<ProfileContextProps>({
-	currentProfile: "default",
-	profiles: ["default"],
+	currentProfile: "User",
+	profiles: ["User"],
 	switchProfile: () => {},
 	addProfile: () => {},
+	editProfile: () => {},
+	deleteProfile: () => {},
 })
 
 const ProfileProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
-	const [currentProfile, setCurrentProfile] = useState("default")
-	const [profiles, setProfiles] = useState<string[]>(["default"])
+	const [currentProfile, setCurrentProfile] = useState("User")
+	const [profiles, setProfiles] = useState<string[]>(["User"])
 
 	useEffect(() => {
 		const savedProfiles = localStorage.getItem("profiles")
@@ -41,9 +45,37 @@ const ProfileProvider: React.FC<{ children: React.ReactNode }> = ({
 		}
 	}
 
+	const editProfile = (oldProfileName: string, newProfileName: string) => {
+		setProfiles(
+			profiles.map((profile) =>
+				profile === oldProfileName ? newProfileName : profile
+			)
+		)
+		if (currentProfile === oldProfileName) {
+			setCurrentProfile(newProfileName)
+		}
+	}
+
+	const deleteProfile = (profileName: string) => {
+		console.log("Deleting profile in context:", profileName) // Лог для отладки
+		if (profiles.length > 1) {
+			setProfiles(profiles.filter((profile) => profile !== profileName))
+			if (currentProfile === profileName) {
+				setCurrentProfile(profiles[0])
+			}
+		}
+	}
+
 	return (
 		<ProfileContext.Provider
-			value={{ currentProfile, profiles, switchProfile, addProfile }}
+			value={{
+				currentProfile,
+				profiles,
+				switchProfile,
+				addProfile,
+				editProfile,
+				deleteProfile,
+			}}
 		>
 			{children}
 		</ProfileContext.Provider>

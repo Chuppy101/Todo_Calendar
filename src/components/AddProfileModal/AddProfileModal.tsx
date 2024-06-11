@@ -1,18 +1,32 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { ProfileContext } from "../../context/ProfileContext"
 import "./AddProfileModal.scss"
 
 interface AddProfileModalProps {
 	onClose: () => void
+	profileToEdit?: string | null
 }
 
-const AddProfileModal: React.FC<AddProfileModalProps> = ({ onClose }) => {
-	const { addProfile } = useContext(ProfileContext)
+const AddProfileModal: React.FC<AddProfileModalProps> = ({
+	onClose,
+	profileToEdit,
+}) => {
+	const { addProfile, editProfile } = useContext(ProfileContext)
 	const [profileName, setProfileName] = useState("")
 
-	const handleAddProfile = () => {
+	useEffect(() => {
+		if (profileToEdit) {
+			setProfileName(profileToEdit)
+		}
+	}, [profileToEdit])
+
+	const handleSaveProfile = () => {
 		if (profileName.trim() !== "") {
-			addProfile(profileName.trim())
+			if (profileToEdit) {
+				editProfile(profileToEdit, profileName.trim())
+			} else {
+				addProfile(profileName.trim())
+			}
 			onClose()
 		}
 	}
@@ -23,14 +37,16 @@ const AddProfileModal: React.FC<AddProfileModalProps> = ({ onClose }) => {
 				<button className="modal__close" onClick={onClose}>
 					X
 				</button>
-				<h2>Add New Profile</h2>
+				<h2>{profileToEdit ? "Edit Profile" : "Add New Profile"}</h2>
 				<input
 					type="text"
 					value={profileName}
 					onChange={(e) => setProfileName(e.target.value)}
 					placeholder="Enter profile name"
 				/>
-				<button onClick={handleAddProfile}>Add</button>
+				<button onClick={handleSaveProfile}>
+					{profileToEdit ? "Save" : "Add"}
+				</button>
 			</div>
 		</div>
 	)

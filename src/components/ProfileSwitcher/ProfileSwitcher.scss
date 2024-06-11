@@ -1,6 +1,31 @@
 .profile-switcher {
 	position: relative;
 	display: inline-block;
+	text-align: center;
+}
+
+.profile-buttons {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.profile-buttons .round-button {
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 5px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.profile-buttons .round-button:hover {
+	background-color: #0056b3;
 }
 
 .profile-selector {
@@ -29,6 +54,57 @@
 	background-color: #f0f0f0;
 }
 
-.add-profile {
-	color: blue;
+.profile-option--delete:hover {
+	background-color: #ffcccc;
+}
+
+.profile-option--edit {
+	background-color: #ccffcc;
+}
+
+.profile-option-controls {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	border-top: 1px solid #ddd;
+}
+
+.profile-option-controls:first-of-type {
+	border-bottom: 1px solid #ddd;
+}
+
+.profile-option-controls button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	margin: 0 5px;
+}
+
+.profile-option-controls button:hover {
+	background-color: #0056b3;
+}
+
+.round-button {
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.profile-option-controls {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+
+.profile-option-controls button {
+	margin: 0 5px;
+}
+
+.profile-option-controls .round-button {
+	margin: 0 5px;
 }
