@@ -1,0 +1,34 @@
+.profile-switcher {
+	position: relative;
+	display: inline-block;
+}
+
+.profile-selector {
+	padding: 10px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.profile-dropdown {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	width: 100%;
+	z-index: 1000;
+}
+
+.profile-option {
+	padding: 10px;
+	cursor: pointer;
+}
+
+.profile-option:hover {
+	background-color: #f0f0f0;
+}
+
+.add-profile {
+	color: blue;
+}
