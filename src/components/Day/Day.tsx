@@ -9,12 +9,16 @@ interface DayProps {
 
 const Day: React.FC<DayProps> = ({ date, isHoliday }) => {
 	const [isOpen, setIsOpen] = useState(false)
+
 	const toggleModal = () => {
 		setIsOpen(!isOpen)
 	}
 
 	return (
-		<div className={`day ${isHoliday ? "holiday" : ""}`} onClick={toggleModal}>
+		<div
+			className={`day ${isHoliday ? "day--holiday" : ""}`}
+			onClick={toggleModal}
+		>
 			<span>{date}</span>
 			{isOpen && <Modal date={date} onClose={toggleModal} />}
 		</div>

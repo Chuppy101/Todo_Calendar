@@ -1,7 +1,24 @@
 .day {
-	background: #f9f9f9;
-	border: 1px solid #ddd;
-	padding: 10px;
+	display: flex;
+	width: 10rem;
+	height: 10rem;
+	margin: 0.25rem;
+	flex-flow: column;
+	border-radius: 0.2rem;
+	padding: 1rem;
+	font-weight: 300;
+	font-size: 0.8rem;
+	box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
 	text-align: center;
 	cursor: pointer;
+
+	&--holiday {
+		background: #ffeb3b;
+	}
 }

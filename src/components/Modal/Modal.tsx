@@ -27,9 +27,14 @@ const Modal: React.FC<ModalProps> = ({ date, onClose }) => {
 	}
 
 	return (
-		<div className="modal" onClick={handleClickOutside}>
+		<div
+			className="modal"
+			onClick={handleClickOutside}
+			role="dialog"
+			aria-modal="true"
+		>
 			<div className="modal__content" onClick={(e) => e.stopPropagation()}>
-				<button className="modal__close" onClick={onClose}>
+				<button className="modal__close" onClick={onClose} aria-label="Close">
 					X
 				</button>
 				<h2>Tasks for {date}</h2>

@@ -4,17 +4,17 @@
 	align-items: center;
 	padding: 5px;
 	border-bottom: 1px solid #ddd;
-}
 
-.task-item__completed {
-	text-decoration: line-through;
-}
+	&__completed {
+		text-decoration: line-through;
+	}
 
-.task-item button {
-	background: red;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	padding: 5px 10px;
-	cursor: pointer;
+	button {
+		background: red;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		padding: 5px 10px;
+		cursor: pointer;
+	}
 }

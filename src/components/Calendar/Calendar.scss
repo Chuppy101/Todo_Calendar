@@ -1,5 +1,40 @@
 .calendar {
+	display: flex;
+	flex-direction: column;
+}
+
+.calendar__controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	padding: 10px;
+}
+
+.calendar__controls select {
+	margin: 0 10px;
+	padding: 10px;
+	background: rgba(255, 255, 255, 0.6);
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	font-family: "Poppins", serif;
+	font-size: 0.8rem;
+}
+
+.calendar__days {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
-	gap: 10px;
+	gap: 0.25rem;
+	list-style: none;
+}
+
+.calendar-container {
+	margin-top: 20px;
 }

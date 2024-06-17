@@ -12,7 +12,7 @@ const AddProfileModal: React.FC<AddProfileModalProps> = ({
 	profileToEdit,
 }) => {
 	const { addProfile, editProfile } = useContext(ProfileContext)
-	const [profileName, setProfileName] = useState("")
+	const [profileName, setProfileName] = useState<string>("")
 
 	useEffect(() => {
 		if (profileToEdit) {
@@ -21,7 +21,7 @@ const AddProfileModal: React.FC<AddProfileModalProps> = ({
 	}, [profileToEdit])
 
 	const handleSaveProfile = () => {
-		if (profileName.trim() !== "") {
+		if (profileName.trim()) {
 			if (profileToEdit) {
 				editProfile(profileToEdit, profileName.trim())
 			} else {
@@ -32,9 +32,9 @@ const AddProfileModal: React.FC<AddProfileModalProps> = ({
 	}
 
 	return (
-		<div className="modal">
+		<div className="modal" role="dialog" aria-modal="true">
 			<div className="modal__content">
-				<button className="modal__close" onClick={onClose}>
+				<button className="modal__close" onClick={onClose} aria-label="Close">
 					X
 				</button>
 				<h2>{profileToEdit ? "Edit Profile" : "Add New Profile"}</h2>
@@ -43,6 +43,7 @@ const AddProfileModal: React.FC<AddProfileModalProps> = ({
 					value={profileName}
 					onChange={(e) => setProfileName(e.target.value)}
 					placeholder="Enter profile name"
+					aria-label="Profile Name"
 				/>
 				<button onClick={handleSaveProfile}>
 					{profileToEdit ? "Save" : "Add"}

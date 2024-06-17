@@ -37,9 +37,8 @@ const ProfileSwitcher: React.FC = () => {
 
 	const handleEditProfile = (profile: string) => {
 		setProfileToEdit(profile)
-		openModal()
-		setIsEditing(false)
-		setActiveAction(null)
+		setIsModalOpen(true) // Убедитесь, что окно открывается для редактирования профиля
+		setActiveAction(null) // Сбросить активное действие
 	}
 
 	const handleOpenDropdownForAction = (action: "edit" | "delete") => {
@@ -49,9 +48,16 @@ const ProfileSwitcher: React.FC = () => {
 
 	return (
 		<div className="profile-switcher">
+			<div className="profile-name">Профили</div>
 			<div className="profile-buttons">
 				{profiles.length < 5 && (
-					<button className="round-button" onClick={openModal}>
+					<button
+						className="round-button"
+						onClick={() => {
+							setProfileToEdit(null) // Сбросить редактируемый профиль
+							openModal()
+						}}
+					>
 						+
 					</button>
 				)}
@@ -77,17 +83,10 @@ const ProfileSwitcher: React.FC = () => {
 						<div
 							key={profile}
 							className={`profile-option ${
-								profileToDelete === profile ? "profile-option--delete" : ""
-							} ${
-								isEditing && profileToEdit === profile
-									? "profile-option--highlight"
+								activeAction === "delete" && profileToDelete === profile
+									? "profile-option--delete"
 									: ""
-							}
-              ${
-								activeAction === "edit" && profile === profileToEdit
-									? "profile-option--edit"
-									: ""
-							}`}
+							} ${activeAction === "edit" ? "profile-option--edit" : ""}`}
 							onMouseEnter={() => {
 								if (activeAction === "delete") {
 									setProfileToDelete(profile)

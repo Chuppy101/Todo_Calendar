@@ -35,11 +35,12 @@ const Calendar: React.FC = () => {
 	}, [selectedYear, selectedMonth])
 
 	return (
-		<div className="calendar">
-			<div>
+		<div className="calendar-container">
+			<div className="calendar__controls">
 				<select
 					value={selectedYear}
 					onChange={(e) => setSelectedYear(parseInt(e.target.value))}
+					aria-label="Select Year"
 				>
 					{[...Array(10)].map((_, i) => (
 						<option key={i} value={new Date().getFullYear() - i}>
@@ -50,6 +51,7 @@ const Calendar: React.FC = () => {
 				<select
 					value={selectedMonth}
 					onChange={(e) => setSelectedMonth(parseInt(e.target.value))}
+					aria-label="Select Month"
 				>
 					{[...Array(12)].map((_, i) => (
 						<option key={i + 1} value={i + 1}>
@@ -58,9 +60,11 @@ const Calendar: React.FC = () => {
 					))}
 				</select>
 			</div>
-			{days.map((day) => (
-				<Day key={day} date={day} isHoliday={holidays.includes(day)} />
-			))}
+			<div className="calendar__days">
+				{days.map((day) => (
+					<Day key={day} date={day} isHoliday={holidays.includes(day)} />
+				))}
+			</div>
 		</div>
 	)
 }

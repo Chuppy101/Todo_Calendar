@@ -12,7 +12,7 @@ interface TaskItemProps {
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
-	const { state, dispatch } = useContext(TaskContext)
+	const { dispatch } = useContext(TaskContext)
 	const { currentProfile } = useContext(ProfileContext)
 
 	const toggleComplete = () => {
@@ -21,7 +21,6 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 
 	const removeTask = () => {
 		dispatch({ type: "REMOVE_TASK", payload: { id: task.id, currentProfile } })
-		console.log("Current state:", state)
 	}
 
 	return (
@@ -30,11 +29,14 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 				type="checkbox"
 				checked={task.completed}
 				onChange={toggleComplete}
+				aria-label="Complete Task"
 			/>
 			<span className={task.completed ? "task-item__completed" : ""}>
 				{task.text}
 			</span>
-			<button onClick={removeTask}>Delete</button>
+			<button onClick={removeTask} aria-label="Delete Task">
+				Delete
+			</button>
 		</div>
 	)
 }

@@ -4,6 +4,13 @@
 	text-align: center;
 }
 
+.profile-name {
+	text-align: center;
+	width: 100%;
+	position: relative;
+	margin-bottom: 10px;
+}
+
 .profile-buttons {
 	display: flex;
 	justify-content: center;
@@ -29,10 +36,17 @@
 }
 
 .profile-selector {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
 	padding: 10px;
-	background-color: #f9f9f9;
-	border: 1px solid #ddd;
-	cursor: pointer;
 }
 
 .profile-dropdown {
@@ -58,7 +72,7 @@
 	background-color: #ffcccc;
 }
 
-.profile-option--edit {
+.profile-option--edit:hover {
 	background-color: #ccffcc;
 }
 
