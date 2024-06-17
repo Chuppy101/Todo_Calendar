@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { fetchHolidays } from "../../services/isDayOffApi"
+import { useFetchHolidays } from "../../hooks/useFetchHolidays"
 import Day from "../Day/Day"
 import "./Calendar.scss"
 
 const Calendar: React.FC = () => {
 	const [days, setDays] = useState<string[]>([])
-	const [holidays, setHolidays] = useState<string[]>([])
 	const [selectedYear, setSelectedYear] = useState<number>(
 		new Date().getFullYear()
 	)
@@ -13,17 +12,7 @@ const Calendar: React.FC = () => {
 		new Date().getMonth() + 1
 	)
 
-	useEffect(() => {
-		const fetchAndSetHolidays = async () => {
-			try {
-				const result = await fetchHolidays(selectedYear)
-				setHolidays(result)
-			} catch (error) {
-				console.error("Error fetching holidays:", error)
-			}
-		}
-		fetchAndSetHolidays()
-	}, [selectedYear])
+	const holidays = useFetchHolidays(selectedYear)
 
 	useEffect(() => {
 		const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate()

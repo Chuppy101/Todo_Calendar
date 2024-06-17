@@ -37,8 +37,8 @@ const ProfileSwitcher: React.FC = () => {
 
 	const handleEditProfile = (profile: string) => {
 		setProfileToEdit(profile)
-		setIsModalOpen(true) // Убедитесь, что окно открывается для редактирования профиля
-		setActiveAction(null) // Сбросить активное действие
+		setIsModalOpen(true)
+		setActiveAction(null)
 	}
 
 	const handleOpenDropdownForAction = (action: "edit" | "delete") => {
@@ -54,7 +54,7 @@ const ProfileSwitcher: React.FC = () => {
 					<button
 						className="round-button"
 						onClick={() => {
-							setProfileToEdit(null) // Сбросить редактируемый профиль
+							setProfileToEdit(null)
 							openModal()
 						}}
 					>

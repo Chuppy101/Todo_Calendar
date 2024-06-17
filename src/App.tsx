@@ -16,11 +16,9 @@ const App: React.FC = () => {
 					<aside className="sidebar">
 						<ProfileSwitcher />
 					</aside>
-					<div className="main-content">
-						<main>
-							<Calendar />
-						</main>
-					</div>
+					<main className="main-content">
+						<Calendar />
+					</main>
 				</div>
 			</TaskProvider>
 		</ProfileProvider>

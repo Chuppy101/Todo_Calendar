@@ -1,4 +1,5 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useRef } from "react"
+import ReactDOM from "react-dom"
 import TaskForm from "../TaskForm/TaskForm"
 import TaskList from "../TaskList/TaskList"
 import { TaskContext } from "../../context/TaskContext"
@@ -18,6 +19,17 @@ const Modal: React.FC<ModalProps> = ({ date, onClose }) => {
 			(task: { date: string }) => task.date === date
 		) || []
 
+	const modalRoot = document.getElementById("modal-root")
+	const el = useRef(document.createElement("div"))
+
+	useEffect(() => {
+		const currentEl = el.current
+		modalRoot?.appendChild(currentEl)
+		return () => {
+			modalRoot?.removeChild(currentEl)
+		}
+	}, [modalRoot])
+
 	const handleClickOutside = (
 		event: React.MouseEvent<HTMLDivElement, MouseEvent>
 	) => {
@@ -26,13 +38,8 @@ const Modal: React.FC<ModalProps> = ({ date, onClose }) => {
 		}
 	}
 
-	return (
-		<div
-			className="modal"
-			onClick={handleClickOutside}
-			role="dialog"
-			aria-modal="true"
-		>
+	return ReactDOM.createPortal(
+		<div className="modal" onClick={handleClickOutside}>
 			<div className="modal__content" onClick={(e) => e.stopPropagation()}>
 				<button className="modal__close" onClick={onClose} aria-label="Close">
 					X
@@ -41,7 +48,8 @@ const Modal: React.FC<ModalProps> = ({ date, onClose }) => {
 				<TaskForm date={date} />
 				<TaskList tasks={tasks} />
 			</div>
-		</div>
+		</div>,
+		el.current
 	)
 }
 
