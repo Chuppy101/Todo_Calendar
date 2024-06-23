@@ -69,8 +69,9 @@ const AddProfileModal: React.FC<AddProfileModalProps> = ({
 					onChange={(e) => setProfileName(e.target.value)}
 					placeholder="Enter profile name"
 					aria-label="Profile Name"
+					className="modal__input"
 				/>
-				<button onClick={handleSaveProfile}>
+				<button onClick={handleSaveProfile} className="modal__button">
 					{profileToEdit ? "Save" : "Add"}
 				</button>
 			</div>

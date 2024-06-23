@@ -9,6 +9,8 @@
 	width: 100%;
 	position: relative;
 	margin-bottom: 10px;
+	font-family: "Poppins", serif;
+	font-size: 1.2rem;
 }
 
 .profile-buttons {
@@ -53,10 +55,13 @@
 	position: absolute;
 	top: 100%;
 	left: 0;
-	background-color: #fff;
-	border: 1px solid #ddd;
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
 	width: 100%;
-	z-index: 1000;
 }
 
 .profile-option {
@@ -65,7 +70,10 @@
 }
 
 .profile-option:hover {
-	background-color: #f0f0f0;
+	background: rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
 }
 
 .profile-option--delete:hover {

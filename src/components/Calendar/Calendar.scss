@@ -28,6 +28,11 @@
 	font-size: 0.8rem;
 }
 
+.calendar__controls .month-name {
+	margin-left: 10px;
+	font-size: 1.2rem;
+}
+
 .calendar__days {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);

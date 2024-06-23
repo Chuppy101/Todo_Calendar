@@ -3,6 +3,21 @@ import { useFetchHolidays } from "../../hooks/useFetchHolidays"
 import Day from "../Day/Day"
 import "./Calendar.scss"
 
+const monthNames = [
+	"Январь",
+	"Февраль",
+	"Март",
+	"Апрель",
+	"Май",
+	"Июнь",
+	"Июль",
+	"Август",
+	"Сентябрь",
+	"Октябрь",
+	"Ноябрь",
+	"Декабрь",
+]
+
 const Calendar: React.FC = () => {
 	const [days, setDays] = useState<string[]>([])
 	const [selectedYear, setSelectedYear] = useState<number>(
@@ -12,13 +27,16 @@ const Calendar: React.FC = () => {
 		new Date().getMonth() + 1
 	)
 
-	const holidays = useFetchHolidays(selectedYear)
+	const holidays = useFetchHolidays(selectedYear, selectedMonth)
 
 	useEffect(() => {
 		const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate()
 		const daysArray = Array.from(
 			{ length: daysInMonth },
-			(_, i) => `${selectedYear}-${selectedMonth}-${i + 1}`
+			(_, i) =>
+				`${selectedYear}-${selectedMonth.toString().padStart(2, "0")}-${(i + 1)
+					.toString()
+					.padStart(2, "0")}`
 		)
 		setDays(daysArray)
 	}, [selectedYear, selectedMonth])
@@ -31,7 +49,7 @@ const Calendar: React.FC = () => {
 					onChange={(e) => setSelectedYear(parseInt(e.target.value))}
 					aria-label="Select Year"
 				>
-					{[...Array(10)].map((_, i) => (
+					{[...Array(20)].map((_, i) => (
 						<option key={i} value={new Date().getFullYear() - i}>
 							{new Date().getFullYear() - i}
 						</option>
@@ -48,6 +66,7 @@ const Calendar: React.FC = () => {
 						</option>
 					))}
 				</select>
+				<span className="month-name">{monthNames[selectedMonth - 1]}</span>
 			</div>
 			<div className="calendar__days">
 				{days.map((day) => (

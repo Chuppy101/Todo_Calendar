@@ -44,7 +44,7 @@ const Modal: React.FC<ModalProps> = ({ date, onClose }) => {
 				<button className="modal__close" onClick={onClose} aria-label="Close">
 					X
 				</button>
-				<h2>Tasks for {date}</h2>
+				<h2>Tasks</h2>
 				<TaskForm date={date} />
 				<TaskList tasks={tasks} />
 			</div>

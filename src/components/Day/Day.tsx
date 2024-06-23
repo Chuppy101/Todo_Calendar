@@ -14,12 +14,14 @@ const Day: React.FC<DayProps> = ({ date, isHoliday }) => {
 		setIsOpen(!isOpen)
 	}
 
+	const dayOfMonth = date.split("-")[2]
+
 	return (
 		<div
 			className={`day ${isHoliday ? "day--holiday" : ""}`}
 			onClick={toggleModal}
 		>
-			<span>{date}</span>
+			<span>{dayOfMonth}</span>
 			{isOpen && <Modal date={date} onClose={toggleModal} />}
 		</div>
 	)

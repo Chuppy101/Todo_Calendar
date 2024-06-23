@@ -33,8 +33,11 @@ const TaskForm: React.FC<TaskFormProps> = ({ date }) => {
 				onChange={(e) => setText(e.target.value)}
 				placeholder="New task"
 				required
+				className="modal__input"
 			/>
-			<button type="submit">Add</button>
+			<button type="submit" className="modal__button">
+				+
+			</button>
 		</form>
 	)
 }
