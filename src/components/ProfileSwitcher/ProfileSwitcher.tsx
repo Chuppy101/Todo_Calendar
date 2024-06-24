@@ -8,7 +8,6 @@ const ProfileSwitcher: React.FC = () => {
 		useContext(ProfileContext)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-	const [isEditing, setIsEditing] = useState(false)
 	const [profileToEdit, setProfileToEdit] = useState<string | null>(null)
 	const [profileToDelete, setProfileToDelete] = useState<string | null>(null)
 	const [activeAction, setActiveAction] = useState<"edit" | "delete" | null>(
@@ -43,7 +42,20 @@ const ProfileSwitcher: React.FC = () => {
 
 	const handleOpenDropdownForAction = (action: "edit" | "delete") => {
 		setActiveAction(action)
-		setIsDropdownOpen(true)
+		setTimeout(() => {
+			setIsDropdownOpen(true)
+		}, 100) // Добавляем небольшую задержку
+	}
+
+	const handleProfileClick = (profile: string) => {
+		if (activeAction === "edit") {
+			handleEditProfile(profile)
+		} else if (activeAction === "delete") {
+			handleDeleteProfile(profile)
+		} else {
+			switchProfile(profile)
+			setIsDropdownOpen(false)
+		}
 	}
 
 	return (
@@ -101,20 +113,8 @@ const ProfileSwitcher: React.FC = () => {
 									setProfileToEdit(null)
 								}
 							}}
-							onClick={() => {
-								if (activeAction === "edit" && profileToEdit === profile) {
-									handleEditProfile(profile)
-								} else if (
-									activeAction === "delete" &&
-									profileToDelete === profile
-								) {
-									handleDeleteProfile(profile)
-								} else {
-									switchProfile(profile)
-									setIsDropdownOpen(false)
-								}
-							}}
-							style={{ cursor: isEditing ? "text" : "pointer" }}
+							onClick={() => handleProfileClick(profile)}
+							style={{ cursor: "pointer" }}
 						>
 							{profile}
 						</div>

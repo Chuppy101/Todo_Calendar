@@ -7,8 +7,6 @@ export const fetchHolidays = async (year: number, month: number) => {
 			responseType: "text",
 		})
 
-		console.log("Response data:", response.data) // Отладочный вывод
-
 		if (typeof response.data === "string") {
 			// Преобразуем строку в массив дат
 			const holidays = response.data

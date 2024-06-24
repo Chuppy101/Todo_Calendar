@@ -1,6 +1,7 @@
 .calendar {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 
 .calendar__controls {
@@ -15,6 +16,8 @@
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	padding: 10px;
+	width: 100%;
+	flex-wrap: wrap;
 }
 
 .calendar__controls select {
@@ -38,8 +41,24 @@
 	grid-template-columns: repeat(7, 1fr);
 	gap: 0.25rem;
 	list-style: none;
+	padding: 0;
 }
 
 .calendar-container {
 	margin-top: 20px;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+}
+
+@media (max-width: 768px) {
+	.calendar__days {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (max-width: 480px) {
+	.calendar__days {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
