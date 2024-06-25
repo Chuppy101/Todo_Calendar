@@ -60,7 +60,7 @@ const ProfileSwitcher: React.FC = () => {
 
 	return (
 		<div className="profile-switcher">
-			<div className="profile-switcher__name">Профили</div>
+			<div className="profile-switcher__name">Profiles</div>
 			<div className="profile-switcher__buttons">
 				{profiles.length < 5 && (
 					<button

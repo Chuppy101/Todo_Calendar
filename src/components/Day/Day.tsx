@@ -22,11 +22,15 @@ const Day: React.FC<DayProps> = ({ date, isHoliday }) => {
 
 	const dayOfMonth = date.split("-")[2]
 
+	const daysOfWeek = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"]
+	const dayOfWeek = daysOfWeek[new Date(date).getDay()]
+
 	return (
 		<div
 			className={`day ${isHoliday ? "day--holiday" : ""}`}
 			onClick={toggleModal}
 		>
+			<span className="day__weekday">{dayOfWeek}</span>
 			<span>{dayOfMonth}</span>
 			{isHoliday && <div className="holiday-label">Holiday</div>}
 			{tasks.length > 0 && <div className="task-indicator">✔</div>}
