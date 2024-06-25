@@ -4,7 +4,7 @@
 	text-align: center;
 }
 
-.profile-name {
+.profile-switcher__name {
 	text-align: center;
 	width: 100%;
 	position: relative;
@@ -13,13 +13,13 @@
 	font-size: 1.2rem;
 }
 
-.profile-buttons {
+.profile-switcher__buttons {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 10px;
 }
 
-.profile-buttons .round-button {
+.profile-switcher__buttons .profile-switcher__round-button {
 	border-radius: 50%;
 	width: 30px;
 	height: 30px;
@@ -33,11 +33,11 @@
 	cursor: pointer;
 }
 
-.profile-buttons .round-button:hover {
+.profile-switcher__buttons .profile-switcher__round-button:hover {
 	background-color: #0056b3;
 }
 
-.profile-selector {
+.profile-switcher__selector {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -51,7 +51,7 @@
 	padding: 10px;
 }
 
-.profile-dropdown {
+.profile-switcher__dropdown {
 	top: 100%;
 	left: 0;
 	background: rgba(255, 255, 255, 0.25);
@@ -64,38 +64,38 @@
 	z-index: 100;
 }
 
-.profile-option {
+.profile-switcher__option {
 	padding: 10px;
 	cursor: pointer;
 }
 
-.profile-option:hover {
+.profile-switcher__option:hover {
 	background: rgba(31, 38, 135, 0.37);
 	backdrop-filter: blur(4px);
 	-webkit-backdrop-filter: blur(4px);
 	border-radius: 10px;
 }
 
-.profile-option--delete:hover {
+.profile-switcher__option--delete:hover {
 	background-color: #ffcccc;
 }
 
-.profile-option--edit:hover {
+.profile-switcher__option--edit:hover {
 	background-color: #ccffcc;
 }
 
-.profile-option-controls {
+.profile-switcher__option-controls {
 	display: flex;
 	justify-content: center;
 	padding: 10px;
 	border-top: 1px solid #ddd;
 }
 
-.profile-option-controls:first-of-type {
+.profile-switcher__option-controls:first-of-type {
 	border-bottom: 1px solid #ddd;
 }
 
-.profile-option-controls button {
+.profile-switcher__option-controls button {
 	background-color: #007bff;
 	color: white;
 	border: none;
@@ -104,11 +104,11 @@
 	margin: 0 5px;
 }
 
-.profile-option-controls button:hover {
+.profile-switcher__option-controls button:hover {
 	background-color: #0056b3;
 }
 
-.round-button {
+.profile-switcher__round-button {
 	border-radius: 50%;
 	width: 30px;
 	height: 30px;
@@ -117,16 +117,16 @@
 	justify-content: center;
 }
 
-.profile-option-controls {
+.profile-switcher__option-controls {
 	display: flex;
 	justify-content: center;
 	padding: 10px;
 }
 
-.profile-option-controls button {
+.profile-switcher__option-controls button {
 	margin: 0 5px;
 }
 
-.profile-option-controls .round-button {
+.profile-switcher__option-controls .profile-switcher__round-button {
 	margin: 0 5px;
 }

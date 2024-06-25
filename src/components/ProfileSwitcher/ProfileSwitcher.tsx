@@ -60,11 +60,11 @@ const ProfileSwitcher: React.FC = () => {
 
 	return (
 		<div className="profile-switcher">
-			<div className="profile-name">Профили</div>
-			<div className="profile-buttons">
+			<div className="profile-switcher__name">Профили</div>
+			<div className="profile-switcher__buttons">
 				{profiles.length < 5 && (
 					<button
-						className="round-button"
+						className="profile-switcher__round-button"
 						onClick={() => {
 							setProfileToEdit(null)
 							openModal()
@@ -74,31 +74,33 @@ const ProfileSwitcher: React.FC = () => {
 					</button>
 				)}
 				<button
-					className="round-button"
+					className="profile-switcher__round-button"
 					onClick={() => handleOpenDropdownForAction("delete")}
 				>
 					-
 				</button>
 				<button
-					className="round-button"
+					className="profile-switcher__round-button"
 					onClick={() => handleOpenDropdownForAction("edit")}
 				>
 					✎
 				</button>
 			</div>
-			<div className="profile-selector" onClick={toggleDropdown}>
+			<div className="profile-switcher__selector" onClick={toggleDropdown}>
 				{currentProfile} ▼
 			</div>
 			{isDropdownOpen && (
-				<div className="profile-dropdown">
+				<div className="profile-switcher__dropdown">
 					{profiles.map((profile) => (
 						<div
 							key={profile}
-							className={`profile-option ${
+							className={`profile-switcher__option ${
 								activeAction === "delete" && profileToDelete === profile
-									? "profile-option--delete"
+									? "profile-switcher__option--delete"
 									: ""
-							} ${activeAction === "edit" ? "profile-option--edit" : ""}`}
+							} ${
+								activeAction === "edit" ? "profile-switcher__option--edit" : ""
+							}`}
 							onMouseEnter={() => {
 								if (activeAction === "delete") {
 									setProfileToDelete(profile)

@@ -9,7 +9,7 @@ const App: React.FC = () => {
 	return (
 		<ProfileProvider>
 			<TaskProvider>
-				<header className="app-header">
+				<header className="app__header">
 					<h1>To-Do Calendar</h1>
 				</header>
 				<div className="app">

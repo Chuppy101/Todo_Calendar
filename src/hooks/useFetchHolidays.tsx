@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react"
-import { fetchHolidays } from "../services/isDayOffApi"
+import { IsDayOffApi } from "../services/isDayOffApi"
+import { AxiosHttpClient } from "../services/axiosHttpClient"
+
+const httpClient = new AxiosHttpClient()
+const isDayOffApi = new IsDayOffApi(httpClient)
 
 export const useFetchHolidays = (year: number, month: number) => {
 	const [holidays, setHolidays] = useState<string[]>([])
@@ -7,7 +11,7 @@ export const useFetchHolidays = (year: number, month: number) => {
 	useEffect(() => {
 		const fetchAndSetHolidays = async () => {
 			try {
-				const result = await fetchHolidays(year, month)
+				const result = await isDayOffApi.fetchHolidays(year, month)
 				setHolidays(result)
 			} catch (error) {
 				console.error("Error fetching holidays:", error)
