@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useEffect, useState } from "react"
 import { useFetchHolidays } from "../../hooks/useFetchHolidays"
 import Day from "../Day/Day"
-import { TaskContext } from "../../context/TaskContext"
-import { ProfileContext } from "../../context/ProfileContext"
 import "./Calendar.scss"
 
 const monthNames = [
@@ -30,8 +28,6 @@ const Calendar: React.FC = () => {
 	)
 
 	const holidays = useFetchHolidays(selectedYear, selectedMonth)
-	const { state } = useContext(TaskContext)
-	const { currentProfile } = useContext(ProfileContext)
 
 	useEffect(() => {
 		const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate()

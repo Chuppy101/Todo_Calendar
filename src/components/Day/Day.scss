@@ -20,30 +20,30 @@
 	text-align: center;
 	cursor: pointer;
 	position: relative;
-}
 
-.day--holiday {
-	background: linear-gradient(
-		135deg,
-		rgba(222, 183, 132, 0.3),
-		rgba(172, 139, 226, 0.937)
-	);
-	border: 1px solid rgba(255, 255, 255, 0.5);
-}
+	&--holiday {
+		background: linear-gradient(
+			135deg,
+			rgba(222, 183, 132, 0.3),
+			rgba(172, 139, 226, 0.937)
+		);
+		border: 1px solid rgba(255, 255, 255, 0.5);
+	}
 
-.day__holiday-label {
-	margin-top: 0.5rem;
-	color: rgba(172, 139, 226, 0.937);
-	font-weight: bold;
-	font-size: 0.9rem;
-}
+	.holiday-label {
+		margin-top: 0.5rem;
+		color: rgba(172, 139, 226, 0.937);
+		font-weight: bold;
+		font-size: 0.9rem;
+	}
 
-.day__task-indicator {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	font-size: 1.2rem;
-	color: green;
+	.task-indicator {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		font-size: 1.2rem;
+		color: green;
+	}
 }
 
 @media (max-width: 1024px) {

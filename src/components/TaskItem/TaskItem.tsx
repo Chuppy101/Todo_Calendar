@@ -34,7 +34,11 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 			<span className={task.completed ? "task-item__completed" : ""}>
 				{task.text}
 			</span>
-			<button onClick={removeTask} aria-label="Delete Task">
+			<button
+				onClick={removeTask}
+				aria-label="Delete Task"
+				className="task-item__button"
+			>
 				Delete
 			</button>
 		</div>

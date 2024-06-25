@@ -1,10 +1,9 @@
-import React, { createContext, useReducer, useEffect, useContext } from "react"
+import React, { createContext, useReducer, useEffect } from "react"
 import { v4 as uuidv4 } from "uuid"
 import {
 	getTasksFromLocalStorage,
 	saveTasksToLocalStorage,
 } from "../utils/localStorage"
-import { ProfileContext } from "./ProfileContext"
 
 export interface Task {
 	id: string
@@ -79,7 +78,6 @@ const taskReducer = (state: State, action: Action): State => {
 const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
-	const { currentProfile } = useContext(ProfileContext)
 	const [state, dispatch] = useReducer(taskReducer, initialState)
 
 	useEffect(() => {
