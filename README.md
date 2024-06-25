@@ -1,6 +1,6 @@
 # To-Do Calendar
 
-![Главная страница проекта](public/Calendar.PNG)
+![Главная страница проекта](public/Calendar.png)
 
 ## Обзор
 
@@ -59,44 +59,44 @@ To-Do Calendar — это веб-приложение, позволяющее п
 
 1. Клонируйте репозиторий:
 
-   git clone git clone https://github.com/Chuppy101/Todo_Calendar.git
-   cd todo_calendar
+   **git clone https://github.com/Chuppy101/Todo_Calendar.git**
+   **cd todo_calendar**
 
 2. Установите зависимости:
 
-npm install
+**npm install**
 
 ## Запуск приложения
 
 ### Для локального запуска приложения:
 
-npm start
+**npm start**
 
 ### Запуск в Docker
 
 1. Соберите Docker-образ:
 
-docker build -t todo_calendar .
+**docker build -t todo_calendar .**
 
 2. Запустите контейнер Docker:
 
-docker run -p 3000:3000 todo_calendar
+**docker run -p 3000:3000 todo_calendar**
 
 ### Остановка контейнера
 
 Чтобы остановить запущенный контейнер, выполните команду:
 
-docker stop <container_id>
+**docker stop <container_id>**
 
 Вы можете узнать container_id с помощью команды:
 
-docker ps
+**docker ps**
 
 ## Запуск тестов
 
 Для запуска тестов:
 
-npm test
+**npm test**
 
 ## Демонстрация проекта
 
